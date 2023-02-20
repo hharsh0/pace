@@ -1,4 +1,5 @@
 
+import Button from "@/components/Button";
 import { DecoderText } from "@/components/DecoderText"
 import Link from 'next/link'
 
@@ -25,7 +26,7 @@ export default function Home() {
             </p>
             <Link
               href="/register"
-              className="inline-flex notched justify-center items-center py-3 px-5 mr-3 text-base font-medium text-center text-black bg-[#2CF0FE] hover:scale-110 duration-500"
+              className="inline-flex notched justify-center items-center py-3 px-5 mr-3 text-base font-medium text-center bg-black dark:text-black dark:bg-[#2CF0FE] text-white hover:scale-110 duration-500"
             >
               Register
               <svg
