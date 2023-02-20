@@ -17,7 +17,7 @@ function ImageCard() {
             <h1 className="title-font text-lg font-medium text-white mb-3">
               Shooting Stars
             </h1>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-white">
               Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
               microdosing tousled waistcoat.
             </p>
