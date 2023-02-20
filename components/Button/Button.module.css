@@ -1,0 +1,152 @@
+.button {
+	 --buttonSize: calc((56 / 16) * 1rem);
+	 --buttonFontSize: calc((18 / 16) * 1rem);
+	 --buttonFocusWidth: 4px;
+	 --buttonPadding: 0 24;
+	 --buttonTextColor: #000;
+	 --buttonTextOpacity: 1;
+	 --buttonLoaderDelay: 0s;
+	 height: var(--buttonSize);
+	 padding: var(--buttonPadding);
+	 cursor: pointer;
+	 transition-property: opacity, color, background;
+	 transition-duration: 300ms;
+	 transition-timing-function: var(--bezierFastoutSlowin);
+	 display: inline-flex;
+	 align-items: center;
+	 position: relative;
+	 isolation: isolate;
+}
+ .button:active {
+	 transition-duration: calc(var(--durationXS) / 2);
+}
+ .button::after {
+	 content: '';
+	 transition-property: opacity, color, background;
+	 transition-duration: var(--durationM);
+	 transition-timing-function: var(--bezierFastoutSlowin);
+	 background: #000;
+	 position: absolute;
+	 inset: 0;
+	 z-index: -1;
+	 clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+ @media (--mediaUseMotion) {
+	 .button {
+		 transition-property: transform, opacity, color, background;
+	}
+	 .button:hover {
+		 transform: scale(1.05);
+	}
+	 .button:active {
+		 transform: scale(1);
+	}
+}
+ .button[data-secondary='true'] {
+	 --buttonSpace: 10px;
+	 --buttonTextColor: #000;
+	 background: none;
+	 padding-left: var(--buttonSpace);
+	 padding-right: var(--buttonSpace);
+	 position: relative;
+	 left: calc(var(--buttonSpace) * -1);
+	 height: calc((32 / 16) * 1rem);
+}
+ .button[data-secondary='true']::after {
+	 content: '';
+	 height: calc((32 / 16) * 1rem);
+	 position: absolute;
+	 inset: 0;
+	 background-color: #000;
+	 transform: scale3d(0, 1, 1);
+	 transform-origin: right;
+	 clip-path: none;
+}
+ .button[data-secondary='true']:hover {
+	 transform: none;
+	 background: transparent;
+}
+ .button[data-secondary='true']:hover::after {
+	 transform: scale3d(1, 1, 1);
+	 transform-origin: left;
+}
+ .button[data-secondary='true'][data-icon='chevronRight'] {
+	 padding-left: calc(var(--buttonSpace) / 2);
+}
+ @media (--mediaUseMotion) {
+	 .button[data-secondary='true']::after {
+		 transition: transform var(--durationM) var(--bezierFastoutSlowin);
+	}
+}
+ .button[data-loading='true'] {
+	 --buttonTextOpacity: 0;
+}
+ .button[data-icon-only='true'] {
+	 --buttonPadding: 0;
+	 --buttonTextColor: var(--colorTextBody);
+	 width: var(--buttonSize);
+	 align-items: center;
+	 justify-content: center;
+	 padding: 0;
+}
+ .button[data-icon-only='true']:hover {
+	 transform: none;
+}
+ .button[data-icon-only='true']::after {
+	 background: #000;
+}
+ .button[data-icon-only='true']:hover::after {
+	 background: #000;
+}
+ .button[disabled] {
+	 pointer-events: none;
+	 opacity: 0.4;
+}
+ .text {
+	 font-size: var(--buttonFontSize);
+	 font-weight: var(--fontWeightMedium);
+	 opacity: var(--buttonTextOpacity);
+	 position: relative;
+	 line-height: 1;
+	 flex: 1 1 auto;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 transition: opacity var(--durationM) var(--bezierFastoutSlowin);
+}
+ .loader {
+	 position: absolute;
+	 left: 50%;
+	 transform: translateX(-50%);
+	 color: #000;
+	 opacity: 0;
+	 transition: opacity var(--durationM) ease var(--buttonLoaderDelay);
+}
+ .loader[data-visible='true'] {
+	 opacity: 1;
+}
+ .icon {
+	 transition-property: opacity, fill;
+	 transition-duration: var(--durationS);
+	 transition-timing-function: var(--bezierFastoutSlowin);
+}
+ @media (--mediaUseMotion) {
+	 .icon {
+		 transition-property: transform, opacity, fill;
+	}
+}
+ .icon[data-start='true'] {
+	 margin-right: var(--spaceS);
+}
+ .icon[data-end='true'] {
+	 margin-left: var(--spaceS);
+}
+ @media (--mediaUseMotion) {
+	 @nest .button:hover &[data-shift='true'] {
+		 transform: translate3d(var(--spaceXS), 0, 0);
+	}
+}
+ @nest .button[data-loading='true'] & {
+	 opacity: 0;
+}
+ 
