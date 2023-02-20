@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
     routeName = "Home";
   }
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <ThemeProvider defaultTheme="dark" attribute="class">
       <Head>
         <title>{`${routeName} | PACE 2023`}</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
