@@ -138,7 +138,7 @@ function Register() {
             </p>
           </div> */}
 
-          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+          <div class="col-span-6 flex justify-between w-full">
             <button
               onClick={handleClickPrev}
               class={`${
