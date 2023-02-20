@@ -99,3 +99,7 @@ export const DecoderText = memo(
     );
   }
 );
+
+console.log(DecoderText)
+
+DecoderText.displayName = "Decodertext";
