@@ -95,7 +95,7 @@ function DropMenu() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <Link href="/blog">
+                <Link href="/gallary">
                   <div
                     className={classNames(
                       active
@@ -113,7 +113,7 @@ function DropMenu() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <Link href="/projects">
+                <Link href="/about">
                   <div
                     className={classNames(
                       active
@@ -131,7 +131,7 @@ function DropMenu() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <Link href="/about">
+                <Link href="/contact">
                   <div
                     className={classNames(
                       active
